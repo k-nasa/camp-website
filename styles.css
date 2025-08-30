@@ -1,0 +1,128 @@
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 100px 100px;
+  gap: 20px;
+}
+
+.animation-showcase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.simple-jump {
+  animation: simple-jump 1s ease-in-out infinite;
+}
+
+.power-jump {
+  animation: power-jump 1s ease-in-out infinite;
+  padding: 100px;
+}
+
+.fall-and-collapse {
+  animation: fall-and-collapse 1s linear infinite;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid red;
+}
+
+.fall-inner {
+  animation: fall-inner 1s ease-in-out infinite;
+}
+
+@keyframes simple-jump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ためジャンプ */
+@keyframes power-jump {
+  0% {
+    scale: 1;
+  }
+  10% {
+    scale: 1.2;
+  }
+  30% {
+    scale: 1.5;
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-100px);
+    scale: 1;
+  }
+  100% {
+    transform: translateY(0);
+    scale: 1;
+  }
+}
+
+/* 落ちて潰れる */
+@keyframes fall-and-collapse {
+  0% {
+    transform: translateY(-100px);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid red;
+  }
+  50% {
+    transform: translateY(-10px);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid red;
+  }
+  80% {
+    transform: translateY(0);
+    width: 40px;
+    height: 4px;
+    border-radius: 50%;
+    border: 1px solid red;
+  }
+  /* 80%と状態を変えない */
+  100% {
+    transform: translateY(0);
+    width: 40px;
+    height: 4px;
+    border-radius: 50%;
+    border: 1px solid red;
+  }
+}
+
+@keyframes collapse {
+  0% {
+    width: 10px;
+    height: 10px;
+  }
+  50% {
+    height: 8px;
+    width: 12px;
+  }
+  100% {
+    width: 40px;
+    height: 0px;
+  }
+}
+
+/* 奥に落ちていく */
+@keyframes fall-inner {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
